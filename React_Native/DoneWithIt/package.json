@@ -1,0 +1,25 @@
+{
+  "name": "donewithit",
+  "license": "0BSD",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "expo": "~52.0.6",
+    "expo-cli": "^6.3.10",
+    "expo-status-bar": "~2.0.0",
+    "hermes-parser": "^0.25.1",
+    "mime-db": "^1.53.0",
+    "react": "18.3.1",
+    "react-native": "0.76.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0"
+  },
+  "private": true
+}
