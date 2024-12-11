@@ -12,9 +12,9 @@ export default function Index() {
 
       <View style={{flexDirection:'row', justifyContent: 'space-around'}}>
         <View style={{borderColor:'black'}}>
-          <Link href={{pathname: "/policyType", params:{vehicleType: '2Wheeler'}}}> 
+          <Link href={{pathname: "/policyType", params:{vehicleType: 'TwoWheeler'}}}> 
             <View style={{alignItems:"center"}}>
-              <Image source={require('../assets/images/2WheelerImage.jpg')} style={{width:130, height:130, margin: 10, borderRadius: 20}} />
+              <Image source={require('../assets/images/TwoWheelerImage.jpg')} style={{width:130, height:130, margin: 10, borderRadius: 20}} />
             </View>
           </Link>
         </View>
@@ -53,9 +53,9 @@ export default function Index() {
 
       <View style={{flexDirection:'row', justifyContent: 'space-around'}}>
         <View style={{borderColor:'black', borderRadius: 20, borderWidth: 1, margin: 5}}>
-          <Link href={{pathname: "/policyType", params:{vehicleType: '2Wheeler'}}}> 
+          <Link href={{pathname: "/policyType", params:{vehicleType: 'TwoWheeler'}}}> 
             <View style={{alignItems:"center"}}>
-              <Image source={require('../assets/images/2WheelerImage.jpg')} style={{width:100, height:100, marginBottom: 10}} />
+              <Image source={require('../assets/images/TwoWheelerImage.jpg')} style={{width:100, height:100, marginBottom: 10}} />
               <Text>Two Wheeler</Text>
               <Text>(Upto 2 Passengers)</Text>
             </View>
@@ -63,7 +63,7 @@ export default function Index() {
         </View>
 
         <View style={{borderColor:'black', borderRadius: 20, borderWidth: 1}}>
-          <Link href={{pathname: "/policyType", params:{vehicleType: '2Wheeler'}}}> 
+          <Link href={{pathname: "/policyType", params:{vehicleType: 'TwoWheeler'}}}> 
             <View style={{alignItems:"center"}}>
               <Image source={require('../assets/images/privateCarImage.jpg')} style={{width:150, height:70, marginTop: 20}} />
               <Text>Two Wheeler</Text>
@@ -75,9 +75,9 @@ export default function Index() {
 
       <View style={{flexDirection:'row', justifyContent: 'space-around'}}>
         <View style={{borderColor:'black', borderRadius: 20, borderWidth: 1, margin: 5}}>
-          <Link href={{pathname: "/policyType", params:{vehicleType: '2Wheeler'}}}> 
+          <Link href={{pathname: "/policyType", params:{vehicleType: 'TwoWheeler'}}}> 
             <View style={{alignItems:"center"}}>
-              <Image source={require('../assets/images/2WheelerImage.jpg')} style={{width:100, height:100, marginBottom: 10}} />
+              <Image source={require('../assets/images/TwoWheelerImage.jpg')} style={{width:100, height:100, marginBottom: 10}} />
               <Text>Two Wheeler</Text>
               <Text>(Upto 2 Passengers)</Text>
             </View>
@@ -85,7 +85,7 @@ export default function Index() {
         </View>
 
         <View style={{borderColor:'black', borderRadius: 20, borderWidth: 1}}>
-          <Link href={{pathname: "/policyType", params:{vehicleType: '2Wheeler'}}}> 
+          <Link href={{pathname: "/policyType", params:{vehicleType: 'TwoWheeler'}}}> 
             <View style={{alignItems:"center"}}>
               <Image source={require('../assets/images/privateCarImage.jpg')} style={{width:150, height:70, marginTop: 20}} />
               <Text>Two Wheeler</Text>

@@ -1,12 +1,13 @@
-import { Text, TextInput, View, ScrollView, StyleSheet } from "react-native";
+import { Text, TextInput, View, ScrollView, StyleSheet, Button } from "react-native";
 import { useState } from "react";
 import { Dropdown } from "react-native-element-dropdown";
-import { Button } from 'react-native'
 import RNDateTimePicker  from '@react-native-community/datetimepicker';
+import { Link, router } from "expo-router";
+import calculatePremium from "./backendCode";
 
 
 
-export default function PolicyType() {
+export default function TwoWheelerPackagePolicy() {
   const [typeOfVehicle, setTypeOfVehicle] = useState("")
   const [cubicCapacity, setCubicCapacity] = useState("")
   const [zone, setZone] = useState("")
@@ -36,6 +37,37 @@ export default function PolicyType() {
   const [noOfPassengers, setNoOfPassengers] = useState("")
   const [sumInsuredEachValue, setSumInsuredEachValue] = useState("")
   const [tppdValue, setTPPDValue] = useState("")
+
+
+  const inputData = {
+    typeOfVehicle,
+    cubicCapacity,
+    zone,
+    policyType,
+    dateOfPurchase,
+    dateOfRenewal,
+    idvValue,
+    odDiscount,
+    ncbValue,
+    nilDepreciationValue,
+    returnToInvoiceValue,
+    engineProtectionValue,
+    consumablesValue,
+    tyreAndRimProtectionValue,
+    roadSideAssistanceValue,
+    keyReplacementValue,
+    electricalAccessoriesValue,
+    nonElectricalAccessoriesValue,
+    voluntaryDeductibleValue,
+    antiTheftValue,
+    automobileAssociationValue,
+    paOwnerDriverValue,
+    llToPaidDriverValue,
+    llToEmployeesValue,
+    noOfPassengers,
+    sumInsuredEachValue,
+    tppdValue,
+  };
 
 
 
@@ -74,10 +106,9 @@ export default function PolicyType() {
     {label: '190000', value:'190000'}, 
     {label: '200000', value:'200000'}]
   const tppdData = [{label: 'RS 1 Lakh', value:'RS 1 Lakh'}, {label: 'RS 6000', value:'RS 6000'}]
+
+
   
-
-
-
 
 
   const showDatePickerForPurchase = () => {
@@ -88,15 +119,20 @@ export default function PolicyType() {
     setDatePickerRenewalVisibility(true);
   };
 
-  const handleDateOfPurchase = (event, date) =>{
+  const handleDateOfPurchase = (event: any, date: Date) =>{
     setDateOfPurchase(date);
     setDatePickerPurchaseVisibility(false)
   };
 
-  const handleDateOfRenewal = (event, date) =>{
+  const handleDateOfRenewal = (event: any, date: Date) =>{
     setDateOfRenewal(date)
     setDatePickerRenewalVisibility(false)
   };
+
+  const handleCalculateButton = () => {
+    let resultData = calculatePremium(inputData)
+    router.push({pathname: `/result`, params: resultData})
+  }
 
 
 
@@ -385,7 +421,7 @@ export default function PolicyType() {
           onChange={item => {setTPPDValue(item.value);}}/>
       </View>
 
-      <Button title="Calculate"/>
+      <Button title="Calculate" onPress={handleCalculateButton} />
 
     </ScrollView>
   );
@@ -421,5 +457,15 @@ const styles = StyleSheet.create({
     height:50,
     width:150,
     flex:1
+  },
+
+  calculateButton:{
+    backgroundColor:"black",
+    borderWidth:0.5,
+    borderRadius: 5,
+    margin: 50,
+    color: "white",
+    height: 70,
+    fontSize: 20
   }
 })

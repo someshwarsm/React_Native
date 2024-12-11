@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, SafeAreaView, Alert } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, Image } from 'react-native';
 
 export default function App() {
   
@@ -9,9 +9,12 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
+
       <Text onPress={handlePress}>
         Hello World!
       </Text>
+
+      <Image style={{margin: 40}} source={require("./assets/favicon.png")} />
       <StatusBar style="auto" />
     </SafeAreaView>
   );
