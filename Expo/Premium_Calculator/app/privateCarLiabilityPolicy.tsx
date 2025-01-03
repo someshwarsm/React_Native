@@ -6,11 +6,12 @@ import calculatePremium from "./backendCode";
 
 
 
-export default function TwoWheelerPackagePolicy() {
+export default function privateCarLiabilityPolicy() {
+  const policy = "PrivateCarLiabilityPolicy"
   const [typeOfPolicy, setTypeOfPolicy] = useState("")
   const [cubicCapacity, setCubicCapacity] = useState("")
   const [bifuelKitValue, setBifuelKitValue] = useState("")
-  const [paOwnerDriverValue, setPAOwnerDriverValue] = useState("")
+  const [paToOwnerDriverValue, setPAToOwnerDriverValue] = useState("")
   const [llToPaidDriverValue, setLLToPaidDriverValue] = useState("")
   const [llToEmployeesValue, setLLToEmployeesValue] = useState("")
   const [noOfPassengers, setNoOfPassengers] = useState("")
@@ -19,10 +20,11 @@ export default function TwoWheelerPackagePolicy() {
 
 
   const inputData = {
+    policy,
     typeOfPolicy,
     cubicCapacity,
     bifuelKitValue,
-    paOwnerDriverValue,
+    paToOwnerDriverValue,
     llToPaidDriverValue,
     llToEmployeesValue,
     noOfPassengers,
@@ -38,7 +40,7 @@ export default function TwoWheelerPackagePolicy() {
     {label: '1001-1500 CC', value:'1001-1500 CC'},
     {label: 'Exceeding 1500 CC', value:'Exceeding 1500 CC'}]
   const yesOrNoData = [{label: 'Yes', value:'Yes'}, {label: 'No', value:'No'}]
-  const paOwnerDriverData = [{label: 'No', value:'No'}, {label: '1 YEAR', value:'1 YEAR'}, {label: '3 YEARS', value:'3 YEARS'}]
+  const paToOwnerDriverData = [{label: 'No', value:'No'}, {label: '1 YEAR', value:'1 YEAR'}, {label: '3 YEARS', value:'3 YEARS'}]
   const noOfPassengersData = [{label: '0', value:'0'}, {label: '1', value:'1'}, {label: '2', value:'2'}, {label: '3', value:'3'}, {label: '4', value:'4'}, {label: '5', value:'5'}, {label: '6', value:'6'}, {label: '7', value:'7'}, {label: '8', value:'8'}, {label: '9', value:'9'}, {label: '10', value:'10'}]
   const sumInsuredEachData = [{label: '0', value:'0'}, 
     {label: '10000', value:'10000'}, 
@@ -128,10 +130,10 @@ export default function TwoWheelerPackagePolicy() {
             labelField="label" 
             valueField="value" 
             style={styles.dropdown} 
-            data={paOwnerDriverData} 
+            data={paToOwnerDriverData} 
             placeholder="Select"
-            value={paOwnerDriverValue} 
-            onChange={item => {setPAOwnerDriverValue(item.value);}}/>
+            value={paToOwnerDriverValue} 
+            onChange={item => {setPAToOwnerDriverValue(item.value);}}/>
         </View>
 
         <View style={styles.row}>

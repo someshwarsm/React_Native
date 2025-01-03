@@ -8,6 +8,7 @@ import calculatePremium from "./backendCode";
 
 
 export default function TwoWheelerPackagePolicy() {
+  const policy = "TwoWheelerPackagePolicy"
   const [typeOfVehicle, setTypeOfVehicle] = useState("")
   const [cubicCapacity, setCubicCapacity] = useState("")
   const [zone, setZone] = useState("")
@@ -31,15 +32,15 @@ export default function TwoWheelerPackagePolicy() {
   const [voluntaryDeductibleValue, setVoluntaryDeductibleValue] = useState("")
   const [antiTheftValue, setAntiTheftValue] = useState("")
   const [automobileAssociationValue, setAutomobileAssociationValue] = useState("")
-  const [paOwnerDriverValue, setPAOwnerDriverValue] = useState("")
+  const [paToOwnerDriverValue, setPAToOwnerDriverValue] = useState("")
   const [llToPaidDriverValue, setLLToPaidDriverValue] = useState("")
   const [llToEmployeesValue, setLLToEmployeesValue] = useState("")
   const [noOfPassengers, setNoOfPassengers] = useState("")
   const [sumInsuredEachValue, setSumInsuredEachValue] = useState("")
-  const [tppdValue, setTPPDValue] = useState("")
 
 
   const inputData = {
+    policy,
     typeOfVehicle,
     cubicCapacity,
     zone,
@@ -61,12 +62,11 @@ export default function TwoWheelerPackagePolicy() {
     voluntaryDeductibleValue,
     antiTheftValue,
     automobileAssociationValue,
-    paOwnerDriverValue,
+    paToOwnerDriverValue,
     llToPaidDriverValue,
     llToEmployeesValue,
     noOfPassengers,
-    sumInsuredEachValue,
-    tppdValue,
+    sumInsuredEachValue
   };
 
 
@@ -82,7 +82,7 @@ export default function TwoWheelerPackagePolicy() {
   const policyTypeData = [{label: 'BUNDLED', value:'BUNDLED'}, {label: 'LONG TERM', value:'LONG TERM'}]
   const yesOrNoData = [{label: 'Yes', value:'Yes'}, {label: 'No', value:'No'}]
   const voluntaryDeductibleData = [{label: '0', value:'0'}, {label: '500', value:'500'}, {label: '750', value:'750'}, {label: '1000', value:'1000'}, {label: '1500', value:'1500'}, {label: '3000', value:'3000'}]
-  const paOwnerDriverData = [{label: 'No', value:'No'}, {label: '1 YEAR', value:'1 YEAR'}, {label: '5 YEAR', value:'5 YEAR'}]
+  const paToOwnerDriverData = [{label: 'No', value:'No'}, {label: '1 YEAR', value:'1 YEAR'}, {label: '5 YEAR', value:'5 YEAR'}]
   const noOfPassengersData = [{label: '0', value:'0'}, {label: '1', value:'1'}, {label: '2', value:'2'}]
   const sumInsuredEachData = [{label: '0', value:'0'}, 
     {label: '10000', value:'10000'}, 
@@ -105,7 +105,6 @@ export default function TwoWheelerPackagePolicy() {
     {label: '180000', value:'180000'}, 
     {label: '190000', value:'190000'}, 
     {label: '200000', value:'200000'}]
-  const tppdData = [{label: 'RS 1 Lakh', value:'RS 1 Lakh'}, {label: 'RS 6000', value:'RS 6000'}]
 
 
   
@@ -355,10 +354,10 @@ export default function TwoWheelerPackagePolicy() {
           labelField="label" 
           valueField="value" 
           style={styles.dropdown} 
-          data={paOwnerDriverData} 
+          data={paToOwnerDriverData} 
           placeholder="Select"
-          value={paOwnerDriverValue} 
-          onChange={item => {setPAOwnerDriverValue(item.value);}}/>
+          value={paToOwnerDriverValue} 
+          onChange={item => {setPAToOwnerDriverValue(item.value);}}/>
       </View>
 
       <View style={styles.row}>
@@ -409,17 +408,6 @@ export default function TwoWheelerPackagePolicy() {
           onChange={item => {setSumInsuredEachValue(item.value);}}/>
       </View>
 
-      <View style={styles.row}>
-        <Text style={styles.text}>TPPD Cover</Text>
-        <Dropdown 
-          labelField="label" 
-          valueField="value" 
-          style={styles.dropdown} 
-          data={tppdData} 
-          placeholder="Select"
-          value={tppdValue} 
-          onChange={item => {setTPPDValue(item.value);}}/>
-      </View>
 
       <Button title="Calculate" onPress={handleCalculateButton} />
 

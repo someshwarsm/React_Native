@@ -8,9 +8,10 @@ import calculatePremium from "./backendCode";
 
 
 export default function TwoWheelerPackagePolicy() {
+  const policy = "TwoWheelerLiabilityPolicy"
   const [typeOfPolicy, setTypeOfPolicy] = useState("")
   const [cubicCapacity, setCubicCapacity] = useState("")
-  const [paOwnerDriverValue, setPAOwnerDriverValue] = useState("")
+  const [paToOwnerDriverValue, setpaToOwnerDriverValue] = useState("")
   const [llToPaidDriverValue, setLLToPaidDriverValue] = useState("")
   const [llToEmployeesValue, setLLToEmployeesValue] = useState("")
   const [noOfPassengers, setNoOfPassengers] = useState("")
@@ -19,27 +20,26 @@ export default function TwoWheelerPackagePolicy() {
 
 
   const inputData = {
+    policy,
     typeOfPolicy,
     cubicCapacity,
-    paOwnerDriverValue,
+    paToOwnerDriverValue,
     llToPaidDriverValue,
     llToEmployeesValue,
     noOfPassengers,
     sumInsuredEachValue,
-    tppdValue,
   };
 
 
 
 
-  const typeOfPolicyData = [{label: 'ONE YEAR', value:'ONE YEAR'}, {label: 'FIVE YEAR', value:'FIVE YEAR'}]
+  const typeOfPolicyData = [{label: '1 YEAR', value:'1 YEAR'}, {label: '3 YEAR', value:'3 YEAR'}]
   const cubicCapacityData = [{label: '< 75 CC', value:'< 75 CC'}, 
     {label: '76-150 CC', value:'76-150 CC'}, 
-    {label: '151-300 CC', value:'151-300 CC'}, 
-    {label: '301-350 CC', value:'301-350 CC'}, 
+    {label: '151-300 CC', value:'151-350 CC'}, 
     {label: 'Exceeding 350 CC', value:'Exceeding 350 CC'}]
   const yesOrNoData = [{label: 'Yes', value:'Yes'}, {label: 'No', value:'No'}]
-  const paOwnerDriverData = [{label: 'No', value:'No'}, {label: '1 YEAR', value:'1 YEAR'}, {label: '5 YEAR', value:'5 YEAR'}]
+  const paToOwnerDriverData = [{label: 'No', value:'No'}, {label: '1 YEAR', value:'1 YEAR'}, {label: '3 YEAR', value:'3 YEAR'}]
   const noOfPassengersData = [{label: '0', value:'0'}, {label: '1', value:'1'}, {label: '2', value:'2'}]
   const sumInsuredEachData = [{label: '0', value:'0'}, 
     {label: '10000', value:'10000'}, 
@@ -62,7 +62,6 @@ export default function TwoWheelerPackagePolicy() {
     {label: '180000', value:'180000'}, 
     {label: '190000', value:'190000'}, 
     {label: '200000', value:'200000'}]
-  const tppdData = [{label: 'RS 1 Lakh', value:'RS 1 Lakh'}, {label: 'RS 6000', value:'RS 6000'}]
 
 
   
@@ -113,10 +112,10 @@ export default function TwoWheelerPackagePolicy() {
           labelField="label" 
           valueField="value" 
           style={styles.dropdown} 
-          data={paOwnerDriverData} 
+          data={paToOwnerDriverData} 
           placeholder="Select"
-          value={paOwnerDriverValue} 
-          onChange={item => {setPAOwnerDriverValue(item.value);}}/>
+          value={paToOwnerDriverValue} 
+          onChange={item => {setpaToOwnerDriverValue(item.value);}}/>
       </View>
 
       <View style={styles.row}>
@@ -165,18 +164,6 @@ export default function TwoWheelerPackagePolicy() {
           placeholder="Select"
           value={sumInsuredEachValue} 
           onChange={item => {setSumInsuredEachValue(item.value);}}/>
-      </View>
-
-      <View style={styles.row}>
-        <Text style={styles.text}>TPPD Cover</Text>
-        <Dropdown 
-          labelField="label" 
-          valueField="value" 
-          style={styles.dropdown} 
-          data={tppdData} 
-          placeholder="Select"
-          value={tppdValue} 
-          onChange={item => {setTPPDValue(item.value);}}/>
       </View>
 
       <Button title="Calculate" onPress={handleCalculateButton} />

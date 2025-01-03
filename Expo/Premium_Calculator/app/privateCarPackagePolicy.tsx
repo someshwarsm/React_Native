@@ -9,6 +9,7 @@ import { GestureStateManager } from "react-native-gesture-handler/lib/typescript
 
 
 export default function PrivateCarPackagePolicy() {
+  const policy = "PrivateCarPackagePolicy"
   const [typeOfVehicle, setTypeOfVehicle] = useState("")
   const [policyType, setPolicyType] = useState("")
   const [cubicCapacity, setCubicCapacity] = useState("")
@@ -37,7 +38,7 @@ export default function PrivateCarPackagePolicy() {
   const [courtesyCarValue, setCourtesyCarValue] = useState("")
   const [antiTheftValue, setAntiTheftValue] = useState("")
   const [automobileAssociationValue, setAutomobileAssociationValue] = useState("")
-  const [paOwnerDriverValue, setPAOwnerDriverValue] = useState("")
+  const [paToOwnerDriverValue, setPAToOwnerDriverValue] = useState("")
   const [llToPaidDriverValue, setLLToPaidDriverValue] = useState("")
   const [llToEmployeesValue, setLLToEmployeesValue] = useState("")
   const [noOfPassengers, setNoOfPassengers] = useState("")
@@ -46,6 +47,7 @@ export default function PrivateCarPackagePolicy() {
 
 
   const inputData = {
+    policy,
     typeOfVehicle,
     policyType,
     cubicCapacity,
@@ -72,7 +74,7 @@ export default function PrivateCarPackagePolicy() {
     courtesyCarValue,
     antiTheftValue,
     automobileAssociationValue,
-    paOwnerDriverValue,
+    paToOwnerDriverValue,
     llToPaidDriverValue,
     llToEmployeesValue,
     noOfPassengers,
@@ -95,7 +97,7 @@ export default function PrivateCarPackagePolicy() {
   const medicalExpensesData = [{label: 'No', value:'No'}, {label: 'Option I', value:'Option I'}, {label: 'Option II', value:'Option II'}]
   const courtesyCarData = [{label: 'No', value:'No'}, {label: '3 days', value:'3 days'}, {label: '5 days', value:'5 days'}, {label: '7 days', value:'7 days'}]
 
-  const paOwnerDriverData = [{label: 'No', value:'No'}, {label: '1 YEAR', value:'1 YEAR'}, {label: '3 YEARS', value:'3 YEARS'}]
+  const paToOwnerDriverData = [{label: 'No', value:'No'}, {label: '1 YEAR', value:'1 YEAR'}, {label: '3 YEARS', value:'3 YEARS'}]
   const noOfPassengersData = [{label: '0', value:'0'}, {label: '1', value:'1'}, {label: '2', value:'2'}, {label: '3', value:'3'}, {label: '4', value:'4'}, {label: '5', value:'5'}, {label: '6', value:'6'}, {label: '7', value:'7'}, {label: '8', value:'8'}, {label: '9', value:'9'}, {label: '10', value:'10'}]
   const sumInsuredEachData = [{label: '0', value:'0'}, 
     {label: '10000', value:'10000'}, 
@@ -442,10 +444,10 @@ export default function PrivateCarPackagePolicy() {
             labelField="label" 
             valueField="value" 
             style={styles.dropdown} 
-            data={paOwnerDriverData} 
+            data={paToOwnerDriverData} 
             placeholder="Select"
-            value={paOwnerDriverValue} 
-            onChange={item => {setPAOwnerDriverValue(item.value);}}/>
+            value={paToOwnerDriverValue} 
+            onChange={item => {setPAToOwnerDriverValue(item.value);}}/>
         </View>
 
         <View style={styles.row}>
