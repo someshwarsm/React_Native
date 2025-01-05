@@ -1,9 +1,9 @@
 import { Text, TextInput, View, ScrollView, StyleSheet, Button } from "react-native";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Dropdown } from "react-native-element-dropdown";
 import RNDateTimePicker  from '@react-native-community/datetimepicker';
 import { Link, router } from "expo-router";
-import calculatePremium from "./backendCode";
+import calculatePremium from "./calculatePremium";
 
 
 
@@ -13,10 +13,12 @@ export default function TwoWheelerPackagePolicy() {
   const [cubicCapacity, setCubicCapacity] = useState("")
   const [zone, setZone] = useState("")
   const [policyType, setPolicyType] = useState("")
-  const [dateOfPurchase, setDateOfPurchase] = useState(new Date())
+  const [dateOfPurchase, setDateOfPurchase] = useState("")
+  const [selectedPurchaseDate, setSelectedPurchaseDate] = useState(new Date())
   const [isDatePickerPurchaseVisible, setDatePickerPurchaseVisibility] = useState(false);
   const [isDatePickerRenewalVisible, setDatePickerRenewalVisibility] = useState(false);
-  const [dateOfRenewal, setDateOfRenewal] = useState(new Date())
+  const [dateOfRenewal, setDateOfRenewal] = useState("")
+  const [selectedRenewalDate, setSelectedRenewalDate] = useState(new Date())
   const [idvValue, setIDVValue] = useState("")
   const [odDiscount, setODDiscount] = useState("")
   const [ncbValue, setNCBValue] = useState("")
@@ -119,18 +121,19 @@ export default function TwoWheelerPackagePolicy() {
   };
 
   const handleDateOfPurchase = (event: any, date: Date) =>{
-    setDateOfPurchase(date);
+    setSelectedPurchaseDate(date)
+    setDateOfPurchase(selectedPurchaseDate.toISOString().substring(0, 10));
     setDatePickerPurchaseVisibility(false)
   };
 
   const handleDateOfRenewal = (event: any, date: Date) =>{
-    setDateOfRenewal(date)
+    setSelectedRenewalDate(date)
+    setDateOfRenewal(selectedRenewalDate.toISOString().substring(0, 10))
     setDatePickerRenewalVisibility(false)
   };
 
   const handleCalculateButton = () => {
-    let resultData = calculatePremium(inputData)
-    router.push({pathname: `/result`, params: resultData})
+    router.push({pathname:`/calculatePremium`, params:inputData})
   }
 
 
@@ -192,16 +195,16 @@ export default function TwoWheelerPackagePolicy() {
       </View>
 
       <View style={styles.row}>
-        <Text style={styles.text}>Date of Purchase</Text>
-        {isDatePickerPurchaseVisible && (<RNDateTimePicker display="spinner" value={dateOfPurchase} onChange={handleDateOfPurchase} positiveButton={{textColor: "white"}} negativeButton={{textColor: "white"}}/>)}
-        <TextInput style={styles.textInput} value={dateOfPurchase.toISOString().substring(0, 10)} onPress={showDatePickerForPurchase}/>
-      </View>
+          <Text style={styles.text}>Date of Purchase</Text>
+          {isDatePickerPurchaseVisible && (<RNDateTimePicker display="spinner" value={selectedPurchaseDate} on onChange={handleDateOfPurchase} positiveButton={{textColor: "white"}} negativeButton={{textColor: "white"}}/>)}
+          <TextInput style={styles.textInput} value={dateOfPurchase} onPress={showDatePickerForPurchase}/>
+        </View>
 
-      <View style={styles.row}>
-        <Text style={styles.text}>Renewal Date</Text>
-        {isDatePickerRenewalVisible && (<RNDateTimePicker display="spinner" value={dateOfRenewal} onChange={handleDateOfRenewal} positiveButton={{textColor: "white"}} negativeButton={{textColor: "white"}}/>)}
-        <TextInput style={styles.textInput} value={dateOfRenewal.toISOString().substring(0, 10)} onPress={showDatePickerForRenewal}/>
-      </View>
+        <View style={styles.row}>
+          <Text style={styles.text}>Renewal Date</Text>
+          {isDatePickerRenewalVisible && (<RNDateTimePicker display="spinner" value={selectedRenewalDate} onChange={handleDateOfRenewal} positiveButton={{textColor: "white"}} negativeButton={{textColor: "white"}}/>)}
+          <TextInput style={styles.textInput} value={dateOfRenewal} onPress={showDatePickerForRenewal}/>
+        </View>
 
       <View style={styles.row}>
         <Text style={styles.text}>Current IDV</Text>

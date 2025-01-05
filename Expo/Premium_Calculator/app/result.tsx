@@ -1,6 +1,7 @@
 import { Text, View, StyleSheet } from "react-native";
 import {useLocalSearchParams} from "expo-router"
 import { ScrollView } from "react-native-gesture-handler";
+import React from "react";
 
 export default function Result() {
   const resultData = useLocalSearchParams();

@@ -3,7 +3,8 @@ import { useState } from "react";
 import { Dropdown } from "react-native-element-dropdown";
 import RNDateTimePicker  from '@react-native-community/datetimepicker';
 import { Link, router } from "expo-router";
-import calculatePremium from "./backendCode";
+import calculatePremium from "./calculatePremium";
+import React from "react";
 
 
 
@@ -68,8 +69,7 @@ export default function TwoWheelerPackagePolicy() {
 
 
   const handleCalculateButton = () => {
-    let resultData = calculatePremium(inputData)
-    router.push({pathname: `/result`, params: resultData})
+    router.push({pathname:`/calculatePremium`, params:inputData})
   }
 
 

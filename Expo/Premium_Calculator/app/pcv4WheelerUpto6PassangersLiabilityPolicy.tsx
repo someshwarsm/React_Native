@@ -2,7 +2,8 @@ import { Text, View, ScrollView, StyleSheet, Button, Pressable } from "react-nat
 import { useState } from "react";
 import { Dropdown } from "react-native-element-dropdown";
 import { router } from "expo-router";
-import calculatePremium from "./backendCode";
+import calculatePremium from "./calculatePremium";
+import React from "react";
 
 
 
@@ -67,8 +68,7 @@ export default function pcv4WheelerUpto6PassengersLiabilityPolicy() {
 
 
   const handleCalculateButton = () => {
-    let resultData = calculatePremium(inputData)
-    router.push({pathname: `/result`, params: resultData})
+    router.push({pathname:`/calculatePremium`, params:inputData})
   }
 
 

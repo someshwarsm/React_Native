@@ -70,16 +70,6 @@ export default function RootLayout() {
 
             <TouchableOpacity
               style={styles.menuItem}
-              onPress={() => {
-                setModalVisible(false);
-                router.push("TwoWheelerPackagePolicy");
-              }}
-            >
-              <Text style={styles.menuText}>Two Wheeler Package Policy</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={styles.menuItem}
               onPress={toggleModal}
             >
               <Text style={styles.menuText}>Close</Text>
